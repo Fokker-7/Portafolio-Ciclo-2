@@ -701,7 +701,6 @@ public:
 
 
 
-		// --- LÓGICA PRIORITARIA: ENTER PARA AVANZAR TEXTO ---
 
 		if (tecla == System::Windows::Forms::Keys::Enter && hayHistoriaActiva()) {
 
@@ -819,7 +818,7 @@ public:
 
 				if (estadoMisionVillager == 0) {
 
-					gestorD->cargarEscena(3); // Pedir ayuda
+					gestorD->cargarEscena(3);
 
 					gestorD->siguienteFrase();
 
@@ -829,11 +828,11 @@ public:
 
 				else if (estadoMisionVillager == 2) {
 
-					gestorD->cargarEscena(4); // Iniciar Pregunta
+					gestorD->cargarEscena(4);
 
 					gestorD->siguienteFrase();
 
-					estadoMisionVillager = 3; // ESTADO DE PREGUNTA
+					estadoMisionVillager = 3;
 
 				}
 
@@ -961,17 +960,15 @@ public:
 
 		bool puedeMoverse = true;
 
-		//CONDICION DE MOVIMIENTO
 
 
 
-		//DIBUJADO DEL JUGADOR
 
 		jugador->Mostrar(buffer, spriteJugador);
 
 
 
-		//TODO DEL MAPA1 //mapa de inicio 
+		//TODO DEL MAPA 1
 
 
 
@@ -1023,7 +1020,6 @@ public:
 
 		}
 
-		//TODO LO QUE PASA EN EL MAPA 2 // recoleccion de gemas
 
 		if (numMapa == 2) {
 
@@ -1043,15 +1039,12 @@ public:
 
 				if (cohete->HitBoxObjeto().IntersectsWith(jugador->hitBoxJugador())) {
 
-					// 🚨 CAMBIO: Activar mapa de cinemática (13)
 					SetNumMapaAc(13);
 
-					// Reiniciar las variables de la cinemática
 					animacion = 0;
 					faseCinematica = 0;
 					tiempoEsperaCinematica = 0;
 
-					// Dar puntos o detener jugador
 					jugador->setDx(0);
 					jugador->setDy(0);
 					jugador->setAccion(CaminarAbajo);
@@ -1066,7 +1059,6 @@ public:
 
 
 
-		//TODO LO QUE PASA EN EL MAPA 3 // MAPA DEL ENGAÑO
 
 		if (numMapa == 3) {
 
@@ -1193,12 +1185,6 @@ public:
 		}
 
 
-
-		//SOLO POR AHORA(cambio al mundo2)
-
-
-
-		//al ultimo para verificar todas las colisiones.....
 
 		if (puedeMoverse) {
 
@@ -1464,7 +1450,6 @@ public:
 
 			aliado->Mostrar(buffer, spriteAliado);
 
-			// 3. Manejo de Colisión: Asegurar que el jugador no atraviese al aliado
 
 			//if (jugador->getNextArea().IntersectsWith(aliado->getArea())) {
 

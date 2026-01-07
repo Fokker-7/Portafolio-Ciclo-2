@@ -146,11 +146,9 @@ namespace Menu {
 	private: System::Void Clock_Tick(System::Object^ sender, System::EventArgs^ e) {
 		buffer->Graphics->Clear(Color::Black);
 
-		// === Lógica Central: Selector de Mundo ===
 		if (controlador->getNumMapa() == 13) {
 			controlador->EjecutarCinematicaCohete(buffer);
 		}
-		// Luego el resto de tus condiciones normales
 		else if (controlador->getNumMapa() < 5) {
 			controlador->EjecutarMundo1(buffer);
 		}
@@ -161,7 +159,6 @@ namespace Menu {
 			controlador->ejecutarMundo3(buffer);
 		}
 
-		// =======================================}
 
 
 		controlador->ActualizarVistaDialogo(lblDialogo, panelDialogo);
@@ -198,7 +195,6 @@ namespace Menu {
 			   this->Clock->Enabled = false;
 			   this->Clock->Stop();
 
-			   // Opcional: Liberar el buffer explícitamente si aún existe
 			   if (buffer != nullptr) {
 				   delete buffer;
 				   buffer = nullptr;

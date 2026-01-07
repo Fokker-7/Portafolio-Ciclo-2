@@ -99,7 +99,7 @@ public:
 		int cant = 0;
 		for (int z = 0; z < aliens.size(); z++) {
 			if (aliens[z]->getHitBox().IntersectsWith(rect)) {
-				delete aliens[z]; // <--- ¡Asegúrate de agregar 'delete' aquí!
+				delete aliens[z];
 				aliens.erase(aliens.begin() + z--);
 				cant++;
 			}
